@@ -39,7 +39,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.BottomLeft = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.ввод = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TopRight
@@ -174,17 +174,18 @@
             this.button2.TabIndex = 10;
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // ввод
             // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button3.Location = new System.Drawing.Point(690, 535);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(185, 53);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Ввод";
-            this.button3.UseVisualStyleBackColor = true;
+            this.ввод.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ввод.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
+            this.ввод.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.ввод.Location = new System.Drawing.Point(690, 535);
+            this.ввод.Name = "ввод";
+            this.ввод.Size = new System.Drawing.Size(185, 53);
+            this.ввод.TabIndex = 11;
+            this.ввод.Text = "Ввод";
+            this.ввод.UseVisualStyleBackColor = true;
+            this.ввод.Click += new System.EventHandler(this.ввод_Click);
             // 
             // Form2
             // 
@@ -193,7 +194,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.BackgroundImage = global::Crossword_Igra.Properties.Resources.яркийКосмос;
             this.ClientSize = new System.Drawing.Size(900, 600);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.ввод);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BottomLeft);
             this.Controls.Add(this.button1);
@@ -230,6 +231,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button BottomLeft;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button ввод;
     }
 }

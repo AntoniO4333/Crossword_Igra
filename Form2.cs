@@ -119,6 +119,7 @@ namespace Crossword_Igra
                 Label label2 = new Label();
                 label2.Text = "СЛОВО";
                 label2.Location = new Point(300, 160);
+                label2.BorderStyle = BorderStyle.FixedSingle;
             }
             label1.Text = "";
         }

@@ -19,6 +19,7 @@ namespace Crossword_Igra
         Pen myPenBlack = new Pen(Color.Black, 3);
         SolidBrush redBr = new SolidBrush(Color.Red);
 
+        Button[] b1 = new Button[5];
         public Form2()
         {
             InitializeComponent();
@@ -35,17 +36,7 @@ namespace Crossword_Igra
             g.FillEllipse(redBr, 700, 300, 100, 100); //красный круг
             DrawRecs(300, 160, 500, 200); //СЛОВО
         }
-        public void DrawRecs(int x, int y, int x1, int y1)
-        {
-            for(int i = x; i <= x1; i += 40)
-            {
-                g.DrawLine(myPenBlack, i, y, i, y1);
-            }
-            for (int i = y; i <= y1; i += 40)
-            {
-                g.DrawLine(myPenBlack, x, i, x1, i);
-            }
-        }
+
 
         private void TopLeft_Click(object sender, EventArgs e)
         {
@@ -93,7 +84,7 @@ namespace Crossword_Igra
 
         private void Rules_Click(object sender, EventArgs e)
         {
-            if (frm3 == null)  frm3 = new Form3();//Создаем указатель на форму 3
+            if (frm3 == null) frm3 = new Form3();//Создаем указатель на форму 3
             frm3.frm2 = this;//Передаем форме 3 указатель на форму 1
             frm3.Show();//Показываем форму 3
             this.Hide();//Прячем форму 1 
@@ -101,7 +92,7 @@ namespace Crossword_Igra
 
         private void Menu_Click(object sender, EventArgs e)
         {
-            if(frm1 == null) frm1 = new Form1();//Создаем указатель на форму 3
+            if (frm1 == null) frm1 = new Form1();//Создаем указатель на форму 3
             frm1.frm2 = this;//Передаем форме 3 указатель на форму 1
             frm1.Show();//Показываем форму 3
             this.Hide();//Прячем форму 1 
@@ -114,7 +105,7 @@ namespace Crossword_Igra
 
         private void ввод_Click(object sender, EventArgs e)
         {
-            if(label1.Text == "СЛОВО")
+            if (label1.Text == "СЛОВО")
             {
                 Label label2 = new Label();
                 label2.Text = "СЛОВО";
@@ -122,6 +113,49 @@ namespace Crossword_Igra
                 label2.BorderStyle = BorderStyle.FixedSingle;
             }
             label1.Text = "";
+        }
+
+        public void DrawRecs(int x, int y, int x1, int y1)
+        {
+            for (int i = x; i <= x1; i += 40)
+            {
+                g.DrawLine(myPenBlack, i, y, i, y1);
+            }
+            for (int i = y; i <= y1; i += 40)
+            {
+                g.DrawLine(myPenBlack, x, i, x1, i);
+            }
+        }
+        public void DrawButtons(int col, int x, int y)
+        {
+            //формируем массив кнопок       
+            for (int i = 0; i < 5; i++)
+
+            {
+                b1[i] = new Button();
+                b1[i].Left = 80;
+                b1[i].Text = "B" + (i + 1).ToString();
+                b1[i].Top = 100 + i * 70; b1[i].Size = new Size(70, 40);
+                b1[i].Tag = i;
+                b1[i].Click += b1_Click;
+                b1[i].BackColor = Color.White;
+                b1[i].ForeColor = Color.Red; b1[i].Font = new Font("Arial", 10, FontStyle.Regular);
+                Controls.Add(b1[i]);
+
+            }
+        }
+        public void b1_Click(object sender, EventArgs e)
+
+        {
+
+            Button Tb;
+            Tb = (Button)sender; //Пpeoбpазование
+            if((int)Tb.Tag == 1) //Преобразуем Tag B int
+            {
+                MessageBox.Show("Победа");
+                for (int i = 0; i < 4; i++) b1[i].Hide(); //Прячем все кнопки
+            }
+            else Tb.Hide(); //Прячем кнопку
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;    
 
 namespace Crossword_Igra
 {
@@ -16,7 +17,7 @@ namespace Crossword_Igra
         public Form2 frm2;//play
         public Form3()
         {
-            InitializeComponent();          
+            InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)

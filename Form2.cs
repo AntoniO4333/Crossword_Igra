@@ -20,6 +20,10 @@ namespace Crossword_Igra
         SolidBrush redBr = new SolidBrush(Color.Red);
 
         Button[] b1 = new Button[5];
+
+        string sl = "СЛОВО";        
+        char[] slovo = { 'С','Л','О','В','О' };
+        bool t = false;
         public Form2()
         {
             InitializeComponent();
@@ -29,8 +33,8 @@ namespace Crossword_Igra
             MiddleLeft.Text = "О";
             MiddleRight.Text = "В";
             Bottom.Text = "О";
-            BottomLeft.Text = "А";
-            DrawButtons(300, 160);
+            BottomLeft.Text = "А";           
+            DrawButtons(300, 160, sl, t);
         }
 
         private void Form2_Paint(object sender, PaintEventArgs e)
@@ -109,10 +113,10 @@ namespace Crossword_Igra
         {
             if (label1.Text == "СЛОВО")
             {
-                Label label2 = new Label();
-                label2.Text = "СЛОВО";
-                label2.Location = new Point(300, 160);
-                label2.BorderStyle = BorderStyle.FixedSingle;
+                t = true;
+                for(int i = 0; i < 5; i++) b1[i].Visible = false;
+                DrawButtons(300, 160, sl, t);
+                t = false;
             }
             label1.Text = "";
         }
@@ -128,15 +132,14 @@ namespace Crossword_Igra
                 g.DrawLine(myPenBlack, x, i, x1, i);
             }
         }
-        public void DrawButtons(int x, int y)
+        public void DrawButtons(int x, int y, string s, bool t)
         {
             //формируем массив кнопок       
-            for (int i = 0; i < 5; i++)
-
+            for (int i = 0; i < s.Length; i++)
             {
+                char[] sl2 = s.ToCharArray();
                 b1[i] = new Button();
                 b1[i].Left = x + i * 40;
-                /*b1[i].Text = "B" + (i + 1).ToString();*/
                 b1[i].Top = y;
                 b1[i].Size = new Size(40, 40);
                 b1[i].Tag = i;
@@ -144,21 +147,25 @@ namespace Crossword_Igra
                 b1[i].BackColor = Color.White;
                 b1[i].ForeColor = Color.Red; b1[i].Font = new Font("Arial", 25, FontStyle.Regular);
                 Controls.Add(b1[i]);
-
+                b1[i].Enabled = false;
+                if (t == true)
+                {
+                    b1[i].Text = Convert.ToString(sl2[i]);
+                }
             }
         }
         public void b1_Click(object sender, EventArgs e)
 
         {
 
-            Button Tb;
+            /*Button Tb;
             Tb = (Button)sender; //Пpeoбpазование
             if((int)Tb.Tag == 1) //Преобразуем Tag B int
             {
                 MessageBox.Show("Победа");
                 for (int i = 0; i < 4; i++) b1[i].Hide(); //Прячем все кнопки
             }
-            else Tb.Hide(); //Прячем кнопку
+            else Tb.Hide(); //Прячем кнопку*/
         }
     }
 }

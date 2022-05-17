@@ -29,6 +29,8 @@ namespace Crossword_Igra
             MiddleLeft.Text = "О";
             MiddleRight.Text = "В";
             Bottom.Text = "О";
+            BottomLeft.Text = "А";
+            DrawButtons(300, 160);
         }
 
         private void Form2_Paint(object sender, PaintEventArgs e)
@@ -126,20 +128,21 @@ namespace Crossword_Igra
                 g.DrawLine(myPenBlack, x, i, x1, i);
             }
         }
-        public void DrawButtons(int col, int x, int y)
+        public void DrawButtons(int x, int y)
         {
             //формируем массив кнопок       
             for (int i = 0; i < 5; i++)
 
             {
                 b1[i] = new Button();
-                b1[i].Left = 80;
-                b1[i].Text = "B" + (i + 1).ToString();
-                b1[i].Top = 100 + i * 70; b1[i].Size = new Size(70, 40);
+                b1[i].Left = x + i * 40;
+                /*b1[i].Text = "B" + (i + 1).ToString();*/
+                b1[i].Top = y;
+                b1[i].Size = new Size(40, 40);
                 b1[i].Tag = i;
                 b1[i].Click += b1_Click;
                 b1[i].BackColor = Color.White;
-                b1[i].ForeColor = Color.Red; b1[i].Font = new Font("Arial", 10, FontStyle.Regular);
+                b1[i].ForeColor = Color.Red; b1[i].Font = new Font("Arial", 25, FontStyle.Regular);
                 Controls.Add(b1[i]);
 
             }

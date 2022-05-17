@@ -33,7 +33,6 @@ namespace Crossword_Igra
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.Play = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -56,7 +55,7 @@ namespace Crossword_Igra
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Lucida Handwriting", 45F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button1.Location = new System.Drawing.Point(244, 315);
+            this.button1.Location = new System.Drawing.Point(250, 450);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(400, 100);
@@ -79,14 +78,6 @@ namespace Crossword_Igra
             this.Play.UseVisualStyleBackColor = false;
             this.Play.Click += new System.EventHandler(this.Play_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-            this.textBox1.Location = new System.Drawing.Point(-3, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 45);
-            this.textBox1.TabIndex = 4;
-            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -94,7 +85,6 @@ namespace Crossword_Igra
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.BackgroundImage = global::Crossword_Igra.Properties.Resources.яркийКосмос;
             this.ClientSize = new System.Drawing.Size(900, 600);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.Play);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
@@ -115,6 +105,5 @@ namespace Crossword_Igra
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button Play;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }

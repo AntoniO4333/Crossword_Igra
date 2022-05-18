@@ -18,7 +18,8 @@ namespace Crossword_Igra
 
         Graphics g;
         Pen myPenBlack = new Pen(Color.Black, 3);
-        SolidBrush redBr = new SolidBrush(Color.Red);       
+        SolidBrush redBr = new SolidBrush(Color.Red);
+        SolidBrush whiteBr = new SolidBrush(Color.White);
 
         Point lastpoint; //прописываем чтобы можно было двигать игру по экрану мышкой
 
@@ -27,13 +28,13 @@ namespace Crossword_Igra
             InitializeComponent();
             g = this.CreateGraphics();                                        
         }
-
         private void Form2_Paint(object sender, PaintEventArgs e)
         {
             g.FillEllipse(redBr, 700, 300, 100, 100); //красный круг
             DrawRecs(300,160,500,200); //СЛОВО 
             DrawRecs(300, 160, 340, 320); //СОВА
         }
+
 
         private void TopLeft_Click(object sender, EventArgs e)
         {
@@ -126,6 +127,8 @@ namespace Crossword_Igra
 
         public void DrawRecs(int x, int y, int x1, int y1)
         {
+            g.FillRectangle(whiteBr, x, y, x1 - x, y1 - y);
+
             for (int i = x; i <= x1; i += 40)
             {
                 g.DrawLine(myPenBlack, i, y, i, y1);
@@ -135,8 +138,6 @@ namespace Crossword_Igra
                 g.DrawLine(myPenBlack, x, i, x1, i);
             }
         }
-
-
         public void DrawButtons(int x, int y, string s, int t)
         {
             //формируем массив кнопок
@@ -156,8 +157,6 @@ namespace Crossword_Igra
                 b1[i].Text = Convert.ToString(sl2[i]);
             }
         }
-
-
         public void VisibleButtons()
         {
             TopLeft.Visible = true;

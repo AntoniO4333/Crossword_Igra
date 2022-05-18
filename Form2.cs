@@ -13,18 +13,15 @@ namespace Crossword_Igra
 {
     public partial class Form2 : Form
     {
-        public Form1 frm1;
+        public Form1 frm1;//menu
         public Form3 frm3;//rules
 
         Graphics g;
         Pen myPenBlack = new Pen(Color.Black, 3);
-        SolidBrush redBr = new SolidBrush(Color.Red);
-
-        Button[] b1 = new Button[5];
+        SolidBrush redBr = new SolidBrush(Color.Red);       
 
         Point lastpoint; //прописываем чтобы можно было двигать игру по экрану мышкой
 
-        StreamReader f = new StreamReader("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//Words.txt"); //для чтения из текстового файла
         public Form2()
         {
             InitializeComponent();
@@ -34,7 +31,8 @@ namespace Crossword_Igra
         private void Form2_Paint(object sender, PaintEventArgs e)
         {
             g.FillEllipse(redBr, 700, 300, 100, 100); //красный круг
-            DrawRecs(300,160,500,200) ; //СЛОВО 
+            DrawRecs(300,160,500,200); //СЛОВО 
+            DrawRecs(300, 160, 340, 320); //СОВА
         }
 
         private void TopLeft_Click(object sender, EventArgs e)
@@ -42,37 +40,33 @@ namespace Crossword_Igra
             label1.Text += "С";
             TopLeft.Visible = false;
         }
-
         private void TopRight_Click(object sender, EventArgs e)
         {
             label1.Text += "Л";
             TopRight.Visible = false;
         }
-
         private void MiddleLeft_Click(object sender, EventArgs e)
         {
             label1.Text += "О";
             MiddleLeft.Visible = false;
         }
-
         private void MiddleRight_Click(object sender, EventArgs e)
         {
             label1.Text += "В";
             MiddleRight.Visible = false;
         }
-
         private void Bottom_Click(object sender, EventArgs e)
         {
             label1.Text += "О";
             Bottom.Visible = false;
 
         }
-
         private void BottomLeft_Click(object sender, EventArgs e)
         {
             label1.Text += "А";
             BottomLeft.Visible = false;
         }        
+
 
         private void Form2_MouseMove(object sender, MouseEventArgs e)
         {
@@ -82,11 +76,11 @@ namespace Crossword_Igra
                 this.Top += e.Y - lastpoint.Y;
             }
         }
-
         private void Form2_MouseDown(object sender, MouseEventArgs e)
         {
             lastpoint = new Point(e.X, e.Y);
         }
+
 
         private void Rules_Click(object sender, EventArgs e)
         {
@@ -95,7 +89,6 @@ namespace Crossword_Igra
             frm3.Show();//Показываем форму 3
             this.Hide();//Прячем форму 1 
         }
-
         private void Menu_Click(object sender, EventArgs e)
         {
             if (frm1 == null) frm1 = new Form1();//Создаем указатель на форму 3
@@ -104,14 +97,15 @@ namespace Crossword_Igra
             this.Hide();//Прячем форму 1 
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
             label1.Text = "";
             VisibleButtons();
         }
-
         private void ввод_Click(object sender, EventArgs e)
         {
+            StreamReader f = new StreamReader("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//Words.txt");
             while (!f.EndOfStream)
             {
                 string sf = f.ReadLine();
@@ -122,13 +116,13 @@ namespace Crossword_Igra
                 if (label1.Text == sf)
                 {
                     DrawButtons(xf, yf, sf, cf);
-                }                
-                break;               
+                    break;
+                }                                               
             }
             label1.Text = "";
             VisibleButtons();
-            f.Close();
         }
+
 
         public void DrawRecs(int x, int y, int x1, int y1)
         {
@@ -142,9 +136,11 @@ namespace Crossword_Igra
             }
         }
 
+
         public void DrawButtons(int x, int y, string s, int t)
         {
-            //формируем массив кнопок       
+            //формируем массив кнопок
+            Button[] b1 = new Button[s.Length];
             for (int i = 0; i < s.Length; i++)
             {
                 char[] sl2 = s.ToCharArray();
@@ -161,6 +157,7 @@ namespace Crossword_Igra
             }
         }
 
+
         public void VisibleButtons()
         {
             TopLeft.Visible = true;
@@ -171,6 +168,7 @@ namespace Crossword_Igra
             BottomLeft.Visible = true;
 
         }
+
 
         public void b1_Click(object sender, EventArgs e)
 

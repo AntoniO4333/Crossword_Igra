@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Crossword_Igra
 {
@@ -21,58 +22,57 @@ namespace Crossword_Igra
 
         Button[] b1 = new Button[5];
 
-        string sl = "СЛОВО";        
-        char[] slovo = { 'С','Л','О','В','О' };
-        bool t = false;
+        Point lastpoint; //прописываем чтобы можно было двигать игру по экрану мышкой
+
+        StreamReader f = new StreamReader("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//Words.txt"); //для чтения из текстового файла
         public Form2()
         {
             InitializeComponent();
-            g = this.CreateGraphics();
-            TopLeft.Text = "С";
-            TopRight.Text = "Л";
-            MiddleLeft.Text = "О";
-            MiddleRight.Text = "В";
-            Bottom.Text = "О";
-            BottomLeft.Text = "А";           
-            DrawButtons(300, 160, sl, t);
+            g = this.CreateGraphics();                                        
         }
 
         private void Form2_Paint(object sender, PaintEventArgs e)
         {
             g.FillEllipse(redBr, 700, 300, 100, 100); //красный круг
-            DrawRecs(300, 160, 500, 200); //СЛОВО
+            DrawRecs(300,160,500,200) ; //СЛОВО 
         }
-
 
         private void TopLeft_Click(object sender, EventArgs e)
         {
             label1.Text += "С";
+            TopLeft.Visible = false;
         }
 
         private void TopRight_Click(object sender, EventArgs e)
         {
             label1.Text += "Л";
+            TopRight.Visible = false;
         }
 
         private void MiddleLeft_Click(object sender, EventArgs e)
         {
             label1.Text += "О";
+            MiddleLeft.Visible = false;
         }
 
         private void MiddleRight_Click(object sender, EventArgs e)
         {
             label1.Text += "В";
+            MiddleRight.Visible = false;
         }
 
         private void Bottom_Click(object sender, EventArgs e)
         {
             label1.Text += "О";
+            Bottom.Visible = false;
+
         }
+
         private void BottomLeft_Click(object sender, EventArgs e)
         {
             label1.Text += "А";
-        }
-        Point lastpoint; //прописываем чтобы можно было двигать игру по экрану мышкой
+            BottomLeft.Visible = false;
+        }        
 
         private void Form2_MouseMove(object sender, MouseEventArgs e)
         {
@@ -107,18 +107,27 @@ namespace Crossword_Igra
         private void button1_Click(object sender, EventArgs e)
         {
             label1.Text = "";
+            VisibleButtons();
         }
 
         private void ввод_Click(object sender, EventArgs e)
         {
-            if (label1.Text == "СЛОВО")
+            while (!f.EndOfStream)
             {
-                t = true;
-                for(int i = 0; i < 5; i++) b1[i].Visible = false;
-                DrawButtons(300, 160, sl, t);
-                t = false;
+                string sf = f.ReadLine();
+                int xf = Convert.ToInt32(f.ReadLine());
+                int yf = Convert.ToInt32(f.ReadLine());
+                int cf = Convert.ToInt32(f.ReadLine());
+
+                if (label1.Text == sf)
+                {
+                    DrawButtons(xf, yf, sf, cf);
+                }                
+                break;               
             }
             label1.Text = "";
+            VisibleButtons();
+            f.Close();
         }
 
         public void DrawRecs(int x, int y, int x1, int y1)
@@ -132,40 +141,40 @@ namespace Crossword_Igra
                 g.DrawLine(myPenBlack, x, i, x1, i);
             }
         }
-        public void DrawButtons(int x, int y, string s, bool t)
+
+        public void DrawButtons(int x, int y, string s, int t)
         {
             //формируем массив кнопок       
             for (int i = 0; i < s.Length; i++)
             {
                 char[] sl2 = s.ToCharArray();
                 b1[i] = new Button();
-                b1[i].Left = x + i * 40;
-                b1[i].Top = y;
+                if (t == 0) { b1[i].Left = x + i * 40; b1[i].Top = y; }
+                if (t == 1) { b1[i].Top = y + i * 40; b1[i].Left = x; }
                 b1[i].Size = new Size(40, 40);
                 b1[i].Tag = i;
                 b1[i].Click += b1_Click;
                 b1[i].BackColor = Color.White;
                 b1[i].ForeColor = Color.Red; b1[i].Font = new Font("Arial", 25, FontStyle.Regular);
                 Controls.Add(b1[i]);
-                b1[i].Enabled = false;
-                if (t == true)
-                {
-                    b1[i].Text = Convert.ToString(sl2[i]);
-                }
+                b1[i].Text = Convert.ToString(sl2[i]);
             }
         }
+
+        public void VisibleButtons()
+        {
+            TopLeft.Visible = true;
+            TopRight.Visible = true;
+            MiddleLeft.Visible = true;
+            MiddleRight.Visible = true;
+            Bottom.Visible = true;
+            BottomLeft.Visible = true;
+
+        }
+
         public void b1_Click(object sender, EventArgs e)
 
         {
-
-            /*Button Tb;
-            Tb = (Button)sender; //Пpeoбpазование
-            if((int)Tb.Tag == 1) //Преобразуем Tag B int
-            {
-                MessageBox.Show("Победа");
-                for (int i = 0; i < 4; i++) b1[i].Hide(); //Прячем все кнопки
-            }
-            else Tb.Hide(); //Прячем кнопку*/
         }
     }
 }

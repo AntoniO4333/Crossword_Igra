@@ -34,7 +34,6 @@
             this.TopLeft = new System.Windows.Forms.Button();
             this.MiddleLeft = new System.Windows.Forms.Button();
             this.Menu = new System.Windows.Forms.Button();
-            this.Rules = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.BottomLeft = new System.Windows.Forms.Button();
@@ -115,19 +114,6 @@
             this.Menu.UseVisualStyleBackColor = true;
             this.Menu.Click += new System.EventHandler(this.Menu_Click);
             // 
-            // Rules
-            // 
-            this.Rules.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Rules.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Rules.ForeColor = System.Drawing.Color.Blue;
-            this.Rules.Location = new System.Drawing.Point(797, 12);
-            this.Rules.Name = "Rules";
-            this.Rules.Size = new System.Drawing.Size(75, 75);
-            this.Rules.TabIndex = 6;
-            this.Rules.Text = "?";
-            this.Rules.UseVisualStyleBackColor = true;
-            this.Rules.Click += new System.EventHandler(this.Rules_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -193,12 +179,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.BackgroundImage = global::Crossword_Igra.Properties.Resources.яркийКосмос;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(900, 600);
             this.Controls.Add(this.ввод);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BottomLeft);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.Rules);
             this.Controls.Add(this.Menu);
             this.Controls.Add(this.MiddleLeft);
             this.Controls.Add(this.TopLeft);
@@ -226,7 +212,6 @@
         private System.Windows.Forms.Button TopLeft;
         private System.Windows.Forms.Button MiddleLeft;
         private System.Windows.Forms.Button Menu;
-        private System.Windows.Forms.Button Rules;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button BottomLeft;

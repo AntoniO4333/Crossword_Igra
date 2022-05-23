@@ -32,7 +32,9 @@ namespace Crossword_Igra
         {
             g.FillEllipse(redBr, 700, 300, 100, 100); //красный круг
             DrawRecs(300,160,500,200); //СЛОВО 
-            DrawRecs(300, 160, 340, 320); //СОВА
+            DrawRecs(300, 160, 340, 320); //САЛО
+            DrawRecs(180, 200, 340, 240); //СОВА
+            DrawRecs(420, 160, 460, 360); //ВОЛОС
         }
 
 
@@ -107,8 +109,10 @@ namespace Crossword_Igra
         private void ввод_Click(object sender, EventArgs e)
         {
             StreamReader f = new StreamReader("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//Words.txt");
+            bool b = false;
             while (!f.EndOfStream)
             {
+                b = false;
                 string sf = f.ReadLine();
                 int xf = Convert.ToInt32(f.ReadLine());
                 int yf = Convert.ToInt32(f.ReadLine());
@@ -117,8 +121,13 @@ namespace Crossword_Igra
                 if (label1.Text == sf)
                 {
                     DrawButtons(xf, yf, sf, cf);
+                    b = true;
                     break;
                 }                                               
+            }
+            if (b == false)
+            {
+                MessageBox.Show("Этого слова нет в кроссворде, попробуй другое");
             }
             label1.Text = "";
             VisibleButtons();
@@ -152,7 +161,7 @@ namespace Crossword_Igra
                 b1[i].Tag = i;
                 b1[i].Click += b1_Click;
                 b1[i].BackColor = Color.White;
-                b1[i].ForeColor = Color.Red; b1[i].Font = new Font("Arial", 25, FontStyle.Regular);
+                b1[i].ForeColor = Color.Black; b1[i].Font = new Font("Arial", 25, FontStyle.Regular);
                 Controls.Add(b1[i]);
                 b1[i].Text = Convert.ToString(sl2[i]);
             }

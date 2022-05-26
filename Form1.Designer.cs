@@ -102,6 +102,7 @@
             this.ВыборУровня.TabIndex = 4;
             this.ВыборУровня.Text = "Level";
             this.ВыборУровня.UseVisualStyleBackColor = false;
+            this.ВыборУровня.Click += new System.EventHandler(this.ВыборУровня_Click);
             // 
             // Form1
             // 

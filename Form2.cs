@@ -14,6 +14,7 @@ namespace Crossword_Igra
     public partial class Form2 : Form
     {
         public Form1 frm1;//menu
+        public Form4 frm4;//menu
         public Form3 frm3;//rules
 
         Graphics g;
@@ -21,23 +22,39 @@ namespace Crossword_Igra
         SolidBrush redBr = new SolidBrush(Color.Red);
         SolidBrush whiteBr = new SolidBrush(Color.White);
 
-        Point lastpoint; //прописываем чтобы можно было двигать игру по экрану мышкой
+        int lvl = 1;
+
+        StreamReader f = new StreamReader("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//Words_lvl1.txt");
+
+        Point lastpoint; //прописываем чтобы можно было двигать игру по экрану мышкой       
 
         public Form2()
         {
             InitializeComponent();
-            g = this.CreateGraphics();                                        
+            g = this.CreateGraphics(); 
+            
+            if(lvl == 1)
+            {
+                TopLeft.Text = "С";
+                TopRight.Text = "Л";
+                MiddleLeft.Text = "О";
+                MiddleRight.Text = "В";
+                Bottom.Text = "О";
+                BottomLeft.Text = "А";
+            }
         }
         private void Form2_Paint(object sender, PaintEventArgs e)
         {
-            g.FillEllipse(redBr, 700, 300, 100, 100); //красный круг
-            DrawRecs(300,160,500,200); //СЛОВО 
-            DrawRecs(300, 160, 340, 320); //САЛО
-            DrawRecs(180, 200, 340, 240); //СОВА
-            DrawRecs(420, 160, 460, 360); //ВОЛОС
+            if (lvl == 1)
+            {
+                g.FillEllipse(redBr, 700, 300, 100, 100); //красный круг
+                DrawRecs(300, 160, 500, 200); //СЛОВО 
+                DrawRecs(300, 160, 340, 320); //САЛО
+                DrawRecs(180, 200, 340, 240); //СОВА
+                DrawRecs(420, 160, 460, 360); //ВОЛОС
+            }
         }
-
-
+        
         private void TopLeft_Click(object sender, EventArgs e)
         {
             label1.Text += "С";
@@ -107,8 +124,11 @@ namespace Crossword_Igra
             VisibleButtons();
         }
         private void ввод_Click(object sender, EventArgs e)
-        {
-            StreamReader f = new StreamReader("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//Words.txt");
+        {   
+            if(lvl == 1)
+            {
+                StreamReader f = new StreamReader("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//Words_lvl1.txt");
+            }
             bool b = false;
             while (!f.EndOfStream)
             {

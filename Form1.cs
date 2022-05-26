@@ -14,6 +14,7 @@ namespace Crossword_Igra
     {
         public Form2 frm2;//play
         public Form3 frm3;//rules
+        public Form4 frm4;//rules
         public Form1()
         {
             InitializeComponent();
@@ -34,6 +35,14 @@ namespace Crossword_Igra
             frm3.Show();//Показываем форму 3
             this.Hide();//Прячем форму 1 
         }
+private void ВыборУровня_Click(object sender, EventArgs e)
+        {
+            if (frm4 == null) frm4 = new Form4();//Создаем указатель на форму 3
+            frm4.frm1 = this;//Передаем форме 3 указатель на форму 1
+            frm4.Show();//Показываем форму 3
+            this.Hide();//Прячем форму 1 
+        }
+
 
         private void exit_Click(object sender, EventArgs e)
         {
@@ -58,5 +67,7 @@ namespace Crossword_Igra
         {
 
         }
+
+        
     }
 }

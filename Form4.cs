@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Crossword_Igra
 {
@@ -47,6 +48,10 @@ namespace Crossword_Igra
 
         private void lvl1_Click(object sender, EventArgs e)
         {
+            StreamWriter sw = new StreamWriter("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//WhichLvlNow.txt");
+            sw.WriteLine("1");
+            sw.Close();
+
             frm2 = new Form2();//Создаем указатель на форму 3
             frm2.frm4 = this;//Передаем форме 3 указатель на форму 1
             frm2.Show();//Показываем форму 3

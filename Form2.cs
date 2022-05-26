@@ -22,18 +22,25 @@ namespace Crossword_Igra
         SolidBrush redBr = new SolidBrush(Color.Red);
         SolidBrush whiteBr = new SolidBrush(Color.White);
 
-        int lvl = 1;
-
         StreamReader f = new StreamReader("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//Words_lvl1.txt");
+
+        public int level()
+        {
+            StreamReader sw = new StreamReader("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//WhichLvlNow.txt");
+            int lvl = Convert.ToInt32(sw.ReadLine());
+            sw.Close();
+            return lvl;            
+        }
+
 
         Point lastpoint; //прописываем чтобы можно было двигать игру по экрану мышкой       
 
         public Form2()
         {
             InitializeComponent();
-            g = this.CreateGraphics(); 
-            
-            if(lvl == 1)
+            g = this.CreateGraphics();           
+            int lvl = level();
+            if (lvl == 1)
             {
                 TopLeft.Text = "С";
                 TopRight.Text = "Л";
@@ -45,6 +52,7 @@ namespace Crossword_Igra
         }
         private void Form2_Paint(object sender, PaintEventArgs e)
         {
+            int lvl = level();
             if (lvl == 1)
             {
                 g.FillEllipse(redBr, 700, 300, 100, 100); //красный круг
@@ -124,8 +132,9 @@ namespace Crossword_Igra
             VisibleButtons();
         }
         private void ввод_Click(object sender, EventArgs e)
-        {   
-            if(lvl == 1)
+        {
+            int lvl = level();
+            if (lvl == 1)
             {
                 StreamReader f = new StreamReader("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//Words_lvl1.txt");
             }
@@ -151,6 +160,8 @@ namespace Crossword_Igra
             }
             label1.Text = "";
             VisibleButtons();
+
+            f.Close();
         }
 
 

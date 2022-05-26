@@ -47,9 +47,9 @@ namespace Crossword_Igra
 
         private void lvl1_Click(object sender, EventArgs e)
         {
-            if (frm2 == null) frm2 = new Form2();//Создаем указатель на форму 3
+            frm2 = new Form2();//Создаем указатель на форму 3
             frm2.frm4 = this;//Передаем форме 3 указатель на форму 1
-            frm1.Show();//Показываем форму 3
+            frm2.Show();//Показываем форму 3
             this.Hide();//Прячем форму 1 
         }
 

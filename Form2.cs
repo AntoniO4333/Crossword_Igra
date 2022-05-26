@@ -29,7 +29,7 @@ namespace Crossword_Igra
             StreamReader sw = new StreamReader("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//WhichLvlNow.txt");
             int lvl = Convert.ToInt32(sw.ReadLine());
             sw.Close();
-            return lvl;            
+            return lvl;           
         }
 
 
@@ -134,7 +134,7 @@ namespace Crossword_Igra
         private void ввод_Click(object sender, EventArgs e)
         {
             int lvl = level();
-            if (lvl == 1)
+            if (lvl == 1)                
             {
                 StreamReader f = new StreamReader("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//Words_lvl1.txt");
             }
@@ -160,8 +160,6 @@ namespace Crossword_Igra
             }
             label1.Text = "";
             VisibleButtons();
-
-            f.Close();
         }
 
 

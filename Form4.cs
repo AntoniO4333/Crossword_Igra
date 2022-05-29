@@ -60,7 +60,9 @@ namespace Crossword_Igra
 
         private void lvl2_Click(object sender, EventArgs e)
         {
-
+            StreamWriter sw = new StreamWriter("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//WhichLvlNow.txt");
+            sw.WriteLine("2");
+            sw.Close();
         }
     }
 }

@@ -60,6 +60,9 @@ namespace Crossword_Igra
                 DrawRecs(300, 160, 340, 320); //САЛО
                 DrawRecs(180, 200, 340, 240); //СОВА
                 DrawRecs(420, 160, 460, 360); //ВОЛОС
+                DrawRecs(460, 40, 500, 200); //СОЛО
+                DrawRecs(460, 80, 620, 120); //ОВАЛ
+                DrawRecs(340, 80, 380, 200); //ВОЛ
             }
         }
         
@@ -134,10 +137,8 @@ namespace Crossword_Igra
         private void ввод_Click(object sender, EventArgs e)
         {
             int lvl = level();
-            if (lvl == 1)                
-            {
-                StreamReader f = new StreamReader("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//Words_lvl1.txt");
-            }
+            StreamReader f = new StreamReader("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//Words_lvl1.txt");
+            //lvl1
             bool b = false;
             while (!f.EndOfStream)
             {
@@ -156,7 +157,7 @@ namespace Crossword_Igra
             }
             if (b == false)
             {
-                MessageBox.Show("Этого слова нет в кроссворде, попробуй другое");
+                MessageBox.Show("Этого слова нет в кроссворде, попробуй другое!");
             }
             label1.Text = "";
             VisibleButtons();

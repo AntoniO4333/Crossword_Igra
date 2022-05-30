@@ -27,7 +27,6 @@ namespace Crossword_Igra
                 StreamWriter sw = new StreamWriter("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//WhichLvlNow.txt");
                 sw.WriteLine("1");
                 sw.Close();
-
                 frm2 = new Form2();//Создаем указатель на форму 2
             }
             frm2.frm1 = this;//Передаем форме 2 указатель на форму 1

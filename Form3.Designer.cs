@@ -83,7 +83,7 @@ namespace Crossword_Igra
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.BackgroundImage = global::Crossword_Igra.Properties.Resources.яркийКосмос;
+            this.BackgroundImage = global::Crossword_Igra.Properties.Resources.ХодячийЗамок;
             this.ClientSize = new System.Drawing.Size(900, 600);
             this.Controls.Add(this.Play);
             this.Controls.Add(this.button1);

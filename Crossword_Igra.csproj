@@ -113,5 +113,11 @@
   <ItemGroup>
     <None Include="яркийКосмос.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ХодячийЗамок.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="СказочныйЗамок1.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -15,8 +15,9 @@ namespace Crossword_Igra
     {
         public Form1 frm1;//menu
         public Form2 frm2;//menu
-        public Form4 frm4;//menu
         public Form3 frm3;//rules
+        public Form4 frm4;//menu
+        
 
         Graphics g;
         Pen myPenBlack = new Pen(Color.Black, 3);
@@ -33,6 +34,15 @@ namespace Crossword_Igra
         string MR = "В";
         string B = "О";
         string BL = "А";
+        bool OSA_s = false;
+        bool VOL_s = false;
+        bool VAL_s = false;
+        bool OVAL_s = false;
+        bool SOLO_s = false;
+        bool VOLOS_s = false;
+        bool SOVA_s = false;
+        bool SALO_S = false;
+        bool SLOVO_s = false;
 
 
         int count = 0;
@@ -175,8 +185,60 @@ namespace Crossword_Igra
                 if (label1.Text == sf)
                 {
                     DrawButtons(xf, yf, sf, cf);
-                    b = true;
-                    count++;
+                    if (sf == "СЛОВО" && SLOVO_s == false)
+                    {
+                        SLOVO_s = true;
+                        count++;
+                        b = true;
+                    }
+                    if (sf == "ВОЛ" && VOL_s == false)
+                    {
+                        VOL_s = true;
+                        count++;
+                        b = true;
+                    }
+                    if (sf == "ВАЛ" && VAL_s == false)
+                    {
+                        VAL_s = true;
+                        count++;
+                        b = true;
+                    }
+                    if (sf == "ОВАЛ" && OVAL_s == false)
+                    {
+                        OVAL_s = true;
+                        count++;
+                        b = true;
+                    }
+                    if (sf == "СОЛО" && SOLO_s == false)
+                    {
+                        SOLO_s = true;
+                        count++;
+                        b = true;
+                    }
+                    if (sf == "ВОЛОС" && VOLOS_s == false)
+                    {
+                        VOLOS_s = true;
+                        count++;
+                        b = true;
+                    }
+                    if (sf == "СОВА" && SOVA_s == false)
+                    {
+                        SOVA_s = true;
+                        count++;
+                        b = true;
+                    }
+                    if (sf == "САЛО" && SALO_S == false)
+                    {
+                        SALO_S = true;
+                        count++;
+                        b = true;
+                    }
+                    if (sf == "ОСА" && OSA_s == false)
+                    {
+                        OSA_s = true;
+                        count++;
+                        b = true;
+                    }
                     break;
                 }                                               
             }
@@ -246,8 +308,9 @@ namespace Crossword_Igra
             se.WriteLine(lvl);
             se.Close();
 
-            this.Hide();
             frm2 = new Form2();
+            frm2.frm1 = this.frm1;
+            this.Close();
             frm2.Show();
         }
 

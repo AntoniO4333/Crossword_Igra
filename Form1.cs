@@ -41,7 +41,7 @@ namespace Crossword_Igra
             frm3.Show();//Показываем форму 3
             this.Hide();//Прячем форму 1 
         }
-private void ВыборУровня_Click(object sender, EventArgs e)
+        private void ВыборУровня_Click(object sender, EventArgs e)
         {
             if (frm4 == null) frm4 = new Form4();//Создаем указатель на форму 3
             frm4.frm1 = this;//Передаем форме 3 указатель на форму 1

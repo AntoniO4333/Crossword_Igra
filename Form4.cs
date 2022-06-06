@@ -52,6 +52,10 @@ namespace Crossword_Igra
             sw.WriteLine("1");
             sw.Close();
 
+            StreamWriter sss = new StreamWriter("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//points.txt");
+            sss.WriteLine("0");
+            sss.Close();
+
             frm2 = new Form2();//Создаем указатель на форму 3
             frm2.frm4 = this;//Передаем форме 3 указатель на форму 1
             frm2.Show();//Показываем форму 3
@@ -63,6 +67,26 @@ namespace Crossword_Igra
             StreamWriter sw = new StreamWriter("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//WhichLvlNow.txt");
             sw.WriteLine("2");
             sw.Close();
+
+            StreamWriter sss = new StreamWriter("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//points.txt");
+            sss.WriteLine("0");
+            sss.Close();
+
+            frm2 = new Form2();//Создаем указатель на форму 3
+            frm2.frm4 = this;//Передаем форме 3 указатель на форму 1
+            frm2.Show();//Показываем форму 3
+            this.Hide();//Прячем форму 1 
+        }
+
+        private void level3_Click(object sender, EventArgs e)
+        {
+            StreamWriter sw = new StreamWriter("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//WhichLvlNow.txt");
+            sw.WriteLine("3");
+            sw.Close();
+
+            StreamWriter sss = new StreamWriter("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//points.txt");
+            sss.WriteLine("0");
+            sss.Close();
 
             frm2 = new Form2();//Создаем указатель на форму 3
             frm2.frm4 = this;//Передаем форме 3 указатель на форму 1

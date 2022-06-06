@@ -55,6 +55,16 @@ namespace Crossword_Igra
         bool ROD_s = false;
         //lvl2
 
+        bool LEPESTOK_s = false;
+        bool TELESKOP_s = false;
+        bool OTPLESK_s = false;
+        bool SLEPOK_s = false;
+        bool TEPLO_s = false;
+        bool KLOP_s = false;
+        bool POLE_s = false;
+        bool SOK_s = false;
+        bool KOT_s = false;
+        //lvl3
 
         int count = 0;
         int points;
@@ -83,6 +93,29 @@ namespace Crossword_Igra
                 B = "О";
                 BL = "А";
             }
+            if (lvl == 3)
+            {
+                TL = "Т";
+                TR = "С";
+                ML = "Е";
+                MR = "П";
+                B = "Е";
+                BL = "Л";
+                MiddleUpLeft.Text = "О";
+                MiddleUpRight.Text = "К";
+                MiddleUpLeft.Visible = true;
+                MiddleUpRight.Visible = true;
+                MiddleLeft.Location = new Point(650, 365);
+                MiddleRight.Location = new Point(810, 365);
+                TopLeft.Location = new Point(695, 255);
+                TopRight.Location = new Point(765, 255);
+                BottomLeft.Location = new Point(695, 410);
+                Bottom.Location = new Point(765, 410);
+                button2.Location = new Point(640,477);
+                button2.Size = new Size(235,55);
+                label1.Location = new Point(650,485);
+            }
+
             TopLeft.Text = TL;
             TopRight.Text = TR;
             MiddleLeft.Text = ML;
@@ -112,14 +145,6 @@ namespace Crossword_Igra
             }
             if(lvl == 2)
             {
-                /*bool DOLLAR_s = false;
-                bool LORD_s = false;
-                bool ORDA_s = false;
-                bool ROLL_s = false;
-                bool DAR_s = false;
-                bool DOL_s = false;
-                bool LAD_s = false;
-                bool ROD_s = false;*/
                 DrawRecs(240, 160, 480, 200); //ДОЛЛАР
                 DrawRecs(240, 40, 280, 200); //ЛОРД
                 DrawRecs(160, 40, 280, 80); //ДОЛ
@@ -128,6 +153,33 @@ namespace Crossword_Igra
                 DrawRecs(320, 160, 360, 280); //ЛАД
                 DrawRecs(240, 240, 360, 280); //РОД
                 DrawRecs(240, 240, 280, 400); //РОЛЛ
+            }
+            if(lvl == 3)
+            {
+                /*bool LEPESTOK_s = false;
+                bool TELESKOP_s = false;
+                bool OTPLESK_s = false;
+                bool COK_s = false;
+                bool SLEPOK_s = false;
+                bool PEKLO_s = false;
+                bool LEPET_s = false;
+                bool SKELET_s = false;  
+                bool STEKLO_s = false;
+                bool KOT_s = false;
+                bool KLOP_s = false;
+
+                bool TEPLO_s = false;
+                bool POLE_s = false;*/
+
+                DrawRecs(160, 240, 480, 280); //ЛЕПЕСТОК
+                DrawRecs(240, 160, 280, 440); //ОТПЛЕСК
+                DrawRecs(40, 400, 360, 440); //ТЕЛЕСКОП
+                DrawRecs(200, 400, 240, 520); //СОК
+                DrawRecs(80, 160, 320, 200); //СЛЕПОК
+                DrawRecs(120, 360, 160, 520); //КЛОП
+                DrawRecs(40, 320, 80, 440); //КОТ
+                DrawRecs(160, 40, 200, 200); //ПОЛЕ
+                DrawRecs(400, 80, 440, 280); //ТЕПЛО
             }
         }
         
@@ -162,6 +214,16 @@ namespace Crossword_Igra
             label1.Text += BL;
             BottomLeft.Visible = false;
         }        
+        private void MiddleUpLeft_Click(object sender, EventArgs e)
+        {
+            label1.Text += MiddleUpLeft.Text;
+            MiddleUpLeft.Visible = false;           
+        }
+        private void MiddleUpRight_Click(object sender, EventArgs e)
+        {
+            label1.Text += MiddleUpRight.Text;
+            MiddleUpRight.Visible = false;
+        }
 
 
         private void Form2_MouseMove(object sender, MouseEventArgs e)
@@ -222,6 +284,13 @@ namespace Crossword_Igra
                     yf = Convert.ToInt32(f2.ReadLine());
                     cf = Convert.ToInt32(f2.ReadLine());
                 }
+                if (lvl == 3)
+                {
+                    sf = f3.ReadLine();
+                    xf = Convert.ToInt32(f3.ReadLine());
+                    yf = Convert.ToInt32(f3.ReadLine());
+                    cf = Convert.ToInt32(f3.ReadLine());
+                }               
 
                 if (label1.Text == sf)
                 {
@@ -349,8 +418,72 @@ namespace Crossword_Igra
                         points_s();
                     }
 
+
+                    if (sf == "ЛЕПЕСТОК" && DOLLAR_s == false)
+                    {
+                        LEPESTOK_s = true;
+                        count++;
+                        b = true;
+                        points_s();
+                    }
+                    if (sf == "ТЕЛЕСКОП" && DOLLAR_s == false)
+                    {
+                        TELESKOP_s = true;
+                        count++;
+                        b = true;
+                        points_s();
+                    }
+                    if (sf == "СЛЕПОК" && DOLLAR_s == false)
+                    {
+                        SLEPOK_s = true;
+                        count++;
+                        b = true;
+                        points_s();
+                    }
+                    if (sf == "ТЕПЛО" && DOLLAR_s == false)
+                    {
+                        TEPLO_s = true;
+                        count++;
+                        b = true;
+                        points_s();
+                    }
+                    if (sf == "КЛОП" && DOLLAR_s == false)
+                    {
+                        KLOP_s = true;
+                        count++;
+                        b = true;
+                        points_s();
+                    }
+                    if (sf == "ПОЛЕ" && DOLLAR_s == false)
+                    {
+                        POLE_s = true;
+                        count++;
+                        b = true;
+                        points_s();
+                    }
+                    if (sf == "СОК" && DOLLAR_s == false)
+                    {
+                        SOK_s = true;
+                        count++;
+                        b = true;
+                        points_s();
+                    }
+                    if (sf == "КОТ" && DOLLAR_s == false)
+                    {
+                        KOT_s = true;
+                        count++;
+                        b = true;
+                        points_s();
+                    }
+                    if (sf == "ОТПЛЕСК" && DOLLAR_s == false)
+                    {
+                        OTPLESK_s = true;
+                        count++;
+                        b = true;
+                        points_s();
+                    }
                     break;
-                }                                               
+                }                
             }
             if (b == false)
             {                
@@ -382,6 +515,15 @@ namespace Crossword_Igra
                     count = 0;
                     MessageBox.Show("Уровень " + Convert.ToString(lvl) + " пройден!");
                     Win();
+                }
+            }
+            if(lvl == 3)
+            {
+                if (CW3() == true)
+                {
+                    count = 0;
+                    MessageBox.Show("Уровень " + Convert.ToString(lvl) + " пройден!");
+                    MessageBox.Show("Вы прошли игру! Вы набрали баллов:" + Convert.ToString(points));
                 }
             }
         }
@@ -481,7 +623,11 @@ namespace Crossword_Igra
             MiddleRight.Visible = true;
             Bottom.Visible = true;
             BottomLeft.Visible = true;
-
+            if (lvl == 3)
+            {
+                MiddleUpLeft.Visible = true;
+                MiddleUpRight.Visible = true;
+            }
         }
         
 
@@ -492,9 +638,9 @@ namespace Crossword_Igra
             se.WriteLine(lvl);
             se.Close();
 
-            frm2 = new Form2();
-            frm2.frm1 = this.frm1;
             this.Close();
+            frm2 = new Form2();
+            frm2.frm1 = this.frm1;            
             frm2.Show();
         }
         public void points_s()
@@ -503,9 +649,6 @@ namespace Crossword_Igra
             points += 2;
             sss.WriteLine(Convert.ToString(points));
             sss.Close();
-            StreamReader ss = new StreamReader("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//points.txt");
-            points = Convert.ToInt32(ss.ReadLine());
-            ss.Close();
         }
         public bool CW1()
         {
@@ -519,10 +662,20 @@ namespace Crossword_Igra
             if (DOLLAR_s == true && LORD_s == true && ORDA_s == true && ROLL_s == true && DAR_s == true && DOL_s == true && LAD_s == true && ROD_s == true) t = true;
             return t;
         }
+        public bool CW3()
+        {
+            bool t = false;
+            if (LEPESTOK_s == true && TELESKOP_s == true && SLEPOK_s == true && KLOP_s == true && POLE_s == true && SOK_s == true && KOT_s == true && OTPLESK_s == true && TEPLO_s == true) t = true;
+            return t;
+        }
+
+
 
         public void b1_Click(object sender, EventArgs e)
         {
 
-        }       
+        }
+
+        
     }
 }

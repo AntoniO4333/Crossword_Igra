@@ -41,6 +41,8 @@
             this.ввод = new System.Windows.Forms.Button();
             this.подсказка = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.MiddleUpLeft = new System.Windows.Forms.Button();
+            this.MiddleUpRight = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TopRight
@@ -141,7 +143,7 @@
             // 
             // BottomLeft
             // 
-            this.BottomLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BottomLeft.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BottomLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
             this.BottomLeft.Location = new System.Drawing.Point(690, 410);
             this.BottomLeft.Name = "BottomLeft";
@@ -198,6 +200,32 @@
             this.label2.TabIndex = 13;
             this.label2.Text = "label2";
             // 
+            // MiddleUpLeft
+            // 
+            this.MiddleUpLeft.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.MiddleUpLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
+            this.MiddleUpLeft.Location = new System.Drawing.Point(650, 300);
+            this.MiddleUpLeft.Name = "MiddleUpLeft";
+            this.MiddleUpLeft.Size = new System.Drawing.Size(40, 40);
+            this.MiddleUpLeft.TabIndex = 14;
+            this.MiddleUpLeft.Text = "button3";
+            this.MiddleUpLeft.UseVisualStyleBackColor = true;
+            this.MiddleUpLeft.Visible = false;
+            this.MiddleUpLeft.Click += new System.EventHandler(this.MiddleUpLeft_Click);
+            // 
+            // MiddleUpRight
+            // 
+            this.MiddleUpRight.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.MiddleUpRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
+            this.MiddleUpRight.Location = new System.Drawing.Point(810, 300);
+            this.MiddleUpRight.Name = "MiddleUpRight";
+            this.MiddleUpRight.Size = new System.Drawing.Size(40, 40);
+            this.MiddleUpRight.TabIndex = 15;
+            this.MiddleUpRight.Text = "button4";
+            this.MiddleUpRight.UseVisualStyleBackColor = true;
+            this.MiddleUpRight.Visible = false;
+            this.MiddleUpRight.Click += new System.EventHandler(this.MiddleUpRight_Click);
+            // 
             // Form2
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -209,6 +237,8 @@
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(900, 600);
             this.ControlBox = false;
+            this.Controls.Add(this.MiddleUpRight);
+            this.Controls.Add(this.MiddleUpLeft);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.подсказка);
             this.Controls.Add(this.ввод);
@@ -249,5 +279,7 @@
         private System.Windows.Forms.Button ввод;
         private System.Windows.Forms.Button подсказка;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button MiddleUpLeft;
+        private System.Windows.Forms.Button MiddleUpRight;
     }
 }

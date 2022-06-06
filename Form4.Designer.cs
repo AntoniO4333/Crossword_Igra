@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lvl1 = new System.Windows.Forms.Button();
             this.lvl2 = new System.Windows.Forms.Button();
+            this.level3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Menu
@@ -88,6 +89,20 @@
             this.lvl2.UseVisualStyleBackColor = false;
             this.lvl2.Click += new System.EventHandler(this.lvl2_Click);
             // 
+            // level3
+            // 
+            this.level3.BackColor = System.Drawing.Color.Transparent;
+            this.level3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.level3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.level3.ForeColor = System.Drawing.Color.Yellow;
+            this.level3.Location = new System.Drawing.Point(266, 150);
+            this.level3.Name = "level3";
+            this.level3.Size = new System.Drawing.Size(100, 100);
+            this.level3.TabIndex = 4;
+            this.level3.Text = "level3";
+            this.level3.UseVisualStyleBackColor = false;
+            this.level3.Click += new System.EventHandler(this.level3_Click);
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -95,6 +110,7 @@
             this.BackgroundImage = global::Crossword_Igra.Properties.Resources.СказочныйЗамок1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(900, 600);
+            this.Controls.Add(this.level3);
             this.Controls.Add(this.lvl2);
             this.Controls.Add(this.lvl1);
             this.Controls.Add(this.label1);
@@ -116,5 +132,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button lvl1;
         private System.Windows.Forms.Button lvl2;
+        private System.Windows.Forms.Button level3;
     }
 }

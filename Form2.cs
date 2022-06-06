@@ -43,9 +43,21 @@ namespace Crossword_Igra
         bool SOVA_s = false;
         bool SALO_S = false;
         bool SLOVO_s = false;
+        //lvl1
+
+        bool DOLLAR_s = false;
+        bool LORD_s = false;
+        bool ORDA_s = false;
+        bool ROLL_s = false;
+        bool DAR_s = false;
+        bool DOL_s = false;
+        bool LAD_s = false;
+        bool ROD_s = false;
+        //lvl2
 
 
         int count = 0;
+        int points;
 
         int lvl;
 
@@ -54,6 +66,10 @@ namespace Crossword_Igra
             StreamReader sw = new StreamReader("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//WhichLvlNow.txt");
             lvl = Convert.ToInt32(sw.ReadLine());
             sw.Close();
+
+            StreamReader ss = new StreamReader("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//points.txt");
+            points = Convert.ToInt32(ss.ReadLine());
+            ss.Close();
 
             InitializeComponent();
             g = this.CreateGraphics();                       
@@ -66,12 +82,6 @@ namespace Crossword_Igra
                 MR = "Р";
                 B = "О";
                 BL = "А";
-                TopLeft.Text = "Д";
-                TopRight.Text = "Л";
-                MiddleLeft.Text = "Л";
-                MiddleRight.Text = "Р";
-                Bottom.Text = "О";
-                BottomLeft.Text = "А";
             }
             TopLeft.Text = TL;
             TopRight.Text = TR;
@@ -79,6 +89,11 @@ namespace Crossword_Igra
             MiddleRight.Text = MR;
             Bottom.Text = B;
             BottomLeft.Text = BL;
+
+            label2.Text = "Points: " + Convert.ToString(points);
+
+            if (lvl == 1) подсказка.Visible = true;
+            else подсказка.Visible = false;
         }
         private void Form2_Paint(object sender, PaintEventArgs e)
         {
@@ -97,7 +112,22 @@ namespace Crossword_Igra
             }
             if(lvl == 2)
             {
-
+                /*bool DOLLAR_s = false;
+                bool LORD_s = false;
+                bool ORDA_s = false;
+                bool ROLL_s = false;
+                bool DAR_s = false;
+                bool DOL_s = false;
+                bool LAD_s = false;
+                bool ROD_s = false;*/
+                DrawRecs(240, 160, 480, 200); //ДОЛЛАР
+                DrawRecs(240, 40, 280, 200); //ЛОРД
+                DrawRecs(160, 40, 280, 80); //ДОЛ
+                DrawRecs(160, 40, 200, 160); //ДАР
+                DrawRecs(400, 40, 440, 200); //ОРДА
+                DrawRecs(320, 160, 360, 280); //ЛАД
+                DrawRecs(240, 240, 360, 280); //РОД
+                DrawRecs(240, 240, 280, 400); //РОЛЛ
             }
         }
         
@@ -172,7 +202,11 @@ namespace Crossword_Igra
         private void ввод_Click(object sender, EventArgs e)
         {
             StreamReader f = new StreamReader("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//Words_lvl1.txt");
-            //lvl1
+
+            StreamReader f2 = new StreamReader("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//Words_lvl2.txt");
+
+            StreamReader f3 = new StreamReader("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//Words_lvl3.txt");
+
             bool b = false;
             while (!f.EndOfStream)
             {
@@ -181,79 +215,229 @@ namespace Crossword_Igra
                 int xf = Convert.ToInt32(f.ReadLine());
                 int yf = Convert.ToInt32(f.ReadLine());
                 int cf = Convert.ToInt32(f.ReadLine());
+                if(lvl == 2)
+                {
+                    sf = f2.ReadLine();
+                    xf = Convert.ToInt32(f2.ReadLine());
+                    yf = Convert.ToInt32(f2.ReadLine());
+                    cf = Convert.ToInt32(f2.ReadLine());
+                }
 
                 if (label1.Text == sf)
                 {
                     DrawButtons(xf, yf, sf, cf);
+                    
                     if (sf == "СЛОВО" && SLOVO_s == false)
                     {
                         SLOVO_s = true;
                         count++;
                         b = true;
+                        points_s();
                     }
                     if (sf == "ВОЛ" && VOL_s == false)
                     {
                         VOL_s = true;
                         count++;
                         b = true;
+                        points_s();
                     }
                     if (sf == "ВАЛ" && VAL_s == false)
                     {
                         VAL_s = true;
                         count++;
                         b = true;
+                        points_s();
                     }
                     if (sf == "ОВАЛ" && OVAL_s == false)
                     {
                         OVAL_s = true;
                         count++;
                         b = true;
+                        points_s();
                     }
                     if (sf == "СОЛО" && SOLO_s == false)
                     {
                         SOLO_s = true;
                         count++;
                         b = true;
+                        points_s();
                     }
                     if (sf == "ВОЛОС" && VOLOS_s == false)
                     {
                         VOLOS_s = true;
                         count++;
                         b = true;
+                        points_s();
                     }
                     if (sf == "СОВА" && SOVA_s == false)
                     {
                         SOVA_s = true;
                         count++;
                         b = true;
+                        points_s();
                     }
                     if (sf == "САЛО" && SALO_S == false)
                     {
                         SALO_S = true;
                         count++;
                         b = true;
+                        points_s();
                     }
                     if (sf == "ОСА" && OSA_s == false)
                     {
                         OSA_s = true;
                         count++;
                         b = true;
+                        points_s();
+                    } 
+                    
+
+                    if (sf == "ДОЛЛАР" && DOLLAR_s == false)
+                    {
+                        DOLLAR_s = true;
+                        count++;
+                        b = true;
+                        points_s();
                     }
+                    if (sf == "ЛОРД" && LORD_s == false)
+                    {
+                        LORD_s = true;
+                        count++;
+                        b = true;
+                        points_s();
+                    }
+                    if (sf == "ОРДА" && ORDA_s == false)
+                    {
+                        ORDA_s = true;
+                        count++;
+                        b = true;
+                        points_s();
+                    }
+                    if (sf == "РОЛЛ" && ROLL_s == false)
+                    {
+                        ROLL_s = true;
+                        count++;
+                        b = true;
+                        points_s();
+                    }
+                    if (sf == "ДАР" && DAR_s == false)
+                    {
+                        DAR_s = true;
+                        count++;
+                        b = true;
+                        points_s();
+                    }
+                    if (sf == "ДОЛ" && DOL_s == false)
+                    {
+                        DOL_s = true;
+                        count++;
+                        b = true;
+                        points_s();
+                    }
+                    if (sf == "ЛАД" && LAD_s == false)
+                    {
+                        LAD_s = true;
+                        count++;
+                        b = true;
+                        points_s();
+                    }
+                    if (sf == "РОД" && ROD_s == false)
+                    {
+                        ROD_s = true;
+                        count++;
+                        b = true;
+                        points_s();
+                    }
+
                     break;
                 }                                               
             }
             if (b == false)
-            {
-                MessageBox.Show("Этого слова нет в кроссворде, попробуй другое!");
+            {                
+                if (points >= 1)
+                {
+                    StreamWriter sss = new StreamWriter("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//points.txt");
+                    points -= 1;
+                    sss.WriteLine(Convert.ToString(points));
+                    sss.Close();
+                }
+                MessageBox.Show("Этого слова нет в кроссворде или ты уже использовал это слово, попробуй другое!");
             }
             label1.Text = "";
+            label2.Text = "Points: " + Convert.ToString(points);
             VisibleButtons();
-            if(count == 9)
+            if (lvl == 1)
             {
-                count = 0;
-                MessageBox.Show("Уровень " + Convert.ToString(lvl) + " пройден!");
-                Win();
+                if (CW1() == true)
+                {
+                    count = 0;
+                    MessageBox.Show("Уровень " + Convert.ToString(lvl) + " пройден!");
+                    Win();
+                }
             }
+            if(lvl == 2)
+            {
+                if (CW2() == true)
+                {
+                    count = 0;
+                    MessageBox.Show("Уровень " + Convert.ToString(lvl) + " пройден!");
+                    Win();
+                }
+            }
+        }
+        private void подсказка_Click(object sender, EventArgs e)
+        {
+            if (points >= 5)
+            {
+                StreamWriter sss = new StreamWriter("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//points.txt");
+                points -= 5;
+                sss.WriteLine(Convert.ToString(points));
+                sss.Close();
+                label2.Text = "Points: " + Convert.ToString(points);
+                if (SLOVO_s == false)
+                {
+                    MessageBox.Show("'Word' на русском");
+                }
+                else if (VOL_s == false)
+                {
+                    MessageBox.Show("Бык, используемый в сельскохозяйственных работах");
+
+                }
+                else if (VAL_s == false)
+                {
+                    MessageBox.Show("Земляная насыпь");
+
+                }
+                else if (OVAL_s == false)
+                {
+                    MessageBox.Show("Вытянутый круг");
+
+                }
+                else if (SOLO_s == false)
+                {
+                    MessageBox.Show("Танец, исполняемый одним человеком");
+                }
+                else if (VOLOS_s == false)
+                {
+                    MessageBox.Show("Часть прически");
+
+                }
+                else if (SOVA_s == false)
+                {
+                    MessageBox.Show("Хищная ночная птица");
+
+                }
+                else if (SALO_S == false)
+                {
+                    MessageBox.Show("Украинское национальное блюдо");
+
+                }
+                else if (OSA_s == false)
+                {
+                    MessageBox.Show("Жалящее насекомое, которое любит сладкое");
+                }
+            }
+            else MessageBox.Show("У вас недостаточно очков");
         }
 
 
@@ -299,7 +483,7 @@ namespace Crossword_Igra
             BottomLeft.Visible = true;
 
         }
-
+        
 
         public void Win()
         {
@@ -313,11 +497,32 @@ namespace Crossword_Igra
             this.Close();
             frm2.Show();
         }
-
+        public void points_s()
+        {
+            StreamWriter sss = new StreamWriter("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//points.txt");
+            points += 2;
+            sss.WriteLine(Convert.ToString(points));
+            sss.Close();
+            StreamReader ss = new StreamReader("C://Users//Anton Cheryomushkin//Desktop//игра на C#//игра на C#//Crossword_Igra//points.txt");
+            points = Convert.ToInt32(ss.ReadLine());
+            ss.Close();
+        }
+        public bool CW1()
+        {
+            bool t = false;
+            if(OSA_s == true && VOL_s == true && VAL_s == true && OVAL_s == true && SOLO_s == true && VOLOS_s == true && SOVA_s == true && SALO_S == true && SLOVO_s == true) t = true;
+            return t;
+        }
+        public bool CW2()
+        {
+            bool t = false;
+            if (DOLLAR_s == true && LORD_s == true && ORDA_s == true && ROLL_s == true && DAR_s == true && DOL_s == true && LAD_s == true && ROD_s == true) t = true;
+            return t;
+        }
 
         public void b1_Click(object sender, EventArgs e)
-
         {
-        }
+
+        }       
     }
 }

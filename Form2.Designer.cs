@@ -39,6 +39,8 @@
             this.BottomLeft = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.ввод = new System.Windows.Forms.Button();
+            this.подсказка = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TopRight
@@ -173,6 +175,29 @@
             this.ввод.UseVisualStyleBackColor = true;
             this.ввод.Click += new System.EventHandler(this.ввод_Click);
             // 
+            // подсказка
+            // 
+            this.подсказка.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.подсказка.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
+            this.подсказка.ForeColor = System.Drawing.Color.Blue;
+            this.подсказка.Location = new System.Drawing.Point(203, 535);
+            this.подсказка.Name = "подсказка";
+            this.подсказка.Size = new System.Drawing.Size(290, 53);
+            this.подсказка.TabIndex = 12;
+            this.подсказка.Text = "Подсказка";
+            this.подсказка.UseVisualStyleBackColor = true;
+            this.подсказка.Click += new System.EventHandler(this.подсказка_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(641, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(147, 54);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "label2";
+            // 
             // Form2
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -184,6 +209,8 @@
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(900, 600);
             this.ControlBox = false;
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.подсказка);
             this.Controls.Add(this.ввод);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BottomLeft);
@@ -220,5 +247,7 @@
         private System.Windows.Forms.Button BottomLeft;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button ввод;
+        private System.Windows.Forms.Button подсказка;
+        private System.Windows.Forms.Label label2;
     }
 }
